@@ -1,3 +1,4 @@
+import './SearchBar.css'
 import React from 'react';
 import getImages from '../api';
 import { useState } from 'react';
@@ -7,6 +8,7 @@ export default function SearchBar({ onSubmit }) {
 
   function handleSubmit(event) {
     event.preventDefault();
+    // Uses changed state (term) to onSubmit function
     onSubmit(term);
   }
 
@@ -16,8 +18,9 @@ export default function SearchBar({ onSubmit }) {
   }
 
   return (
-    <div>
+    <div className='search-bar'>
       <form onSubmit={handleSubmit}>
+        <label>Enter search term</label>
         <input value={term} type="text" onChange={handleChange} />
       </form>
     </div>
